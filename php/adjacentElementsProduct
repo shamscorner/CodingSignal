@@ -1,0 +1,10 @@
+function adjacentElementsProduct($inputArray) {
+    $result = -10001;
+    for($i = 0; $i < count($inputArray) - 1; $i++) {
+        $product = $inputArray[$i] * $inputArray[$i+1];
+        if($product > $result) {
+            $result = $product;
+        }    
+    }
+    return $result;
+}
