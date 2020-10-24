@@ -1,0 +1,9 @@
+function centuryFromYear($year) {
+    $result = (int) ($year / 100);
+    $remainder = $year % 100;
+    
+    if($remainder == 0) {
+        return $result;
+    }
+    return $result + 1;
+}
