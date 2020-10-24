@@ -1,0 +1,21 @@
+function almostIncreasingSequence($sequence) {
+    $itemToBeRemoved = 0;
+    
+    if($sequence[0] >= $sequence[1]) {
+        $itemToBeRemoved++;
+    }
+    
+    $i = 2;
+    while($i < count($sequence)) {
+        if($sequence[$i - 1] >= $sequence[$i]) {
+            $itemToBeRemoved++;
+            
+            if($sequence[$i - 2] >= $sequence[$i]) {
+                $sequence[$i] = $sequence[$i - 1];
+            }
+        }
+        $i++;
+    }
+    
+    return $itemToBeRemoved < 2;
+}
