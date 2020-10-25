@@ -1,0 +1,21 @@
+function isLucky($n) {
+    $numArr = str_split(strval($n));
+    
+    $arrLength = count($numArr);
+    $halfLength = $arrLength / 2;
+    
+    $firstHalfSum = 0;
+    $secondHalfSum = 0;
+    for($i = 0; $i < $arrLength; $i++) {
+        if($i < $halfLength) {
+            $firstHalfSum += $numArr[$i];
+        } else {
+            $secondHalfSum += $numArr[$i];
+        }
+    }
+    
+    if($firstHalfSum == $secondHalfSum) {
+        return true;
+    }
+    return false;
+}
