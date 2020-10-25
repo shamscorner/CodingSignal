@@ -1,0 +1,17 @@
+function allLongestStrings($inputArray) {
+    $arrLength = [];
+    foreach($inputArray as $item) {
+        array_push($arrLength, strlen($item));
+    }
+    
+    $maxLength = max($arrLength);
+    
+    $result = [];
+    for($i = 0; $i < count($arrLength); $i++) {
+        if($arrLength[$i] == $maxLength) {
+            array_push($result, $inputArray[$i]);
+        }
+    }
+    
+    return $result;
+}
