@@ -1,0 +1,20 @@
+function reverseInParentheses($inputString) {
+    while(true) {
+        $closeParIndex = strpos($inputString, ')');
+        if(! $closeParIndex) {
+            break;
+        }
+        
+        $openParIndex = strrpos(substr($inputString, 0, $closeParIndex), '(');
+        
+        $start = substr($inputString, 0, $openParIndex);
+        
+        $middle = strrev(substr($inputString, $openParIndex + 1, $closeParIndex - $openParIndex - 1));
+        
+        $end = substr($inputString, $closeParIndex + 1, strlen($inputString) - $closeParIndex - 1);
+        
+        $inputString = $start . $middle . $end;
+    }
+    
+    return $inputString;
+}
