@@ -1,0 +1,19 @@
+function alternatingSums($a) {
+    $team1 = [];
+    $team2 = [];
+    
+    foreach($a as $key => $item) {
+        if($key % 2 == 0) {
+            array_push($team1, $item);
+        } else {
+            array_push($team2, $item);
+        }
+    }
+    
+    $result = [];
+    
+    array_push($result, array_sum($team1));
+    array_push($result, array_sum($team2));
+    
+    return $result;
+}
