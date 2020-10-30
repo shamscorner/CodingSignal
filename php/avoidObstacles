@@ -1,0 +1,16 @@
+function avoidObstacles($inputArray) {
+    sort($inputArray);
+    
+    for($i = 1; $i <= $inputArray[sizeof($inputArray) - 1] + 1; $i++) {
+        $isFound = true;
+        foreach($inputArray as $item) {
+            if($item % $i == 0) {
+                $isFound = false;
+                break;
+            }
+        }
+        if($isFound) {
+            return $i;
+        }
+    }
+}
