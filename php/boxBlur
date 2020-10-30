@@ -1,0 +1,22 @@
+function boxBlur($image) {
+    $imageArr = [];
+    
+    for($i = 0; $i < sizeof($image) - 2; $i++) {
+        $line = [];
+        for($j = 0; $j < sizeof($image[$i]) - 2; $j++) {
+            $sum = 0;
+            $count = 0;
+            
+            for($a = $i; $a < $i + 3; $a++) {
+                for($b = $j; $b < $j + 3; $b++) {
+                    $sum += $image[$a][$b];
+                    $count++;
+                }
+            }
+            array_push($line, floor($sum / $count));
+        }
+        array_push($imageArr, $line);
+    }
+    
+    return $imageArr;
+}
