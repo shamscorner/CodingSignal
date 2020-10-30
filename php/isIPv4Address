@@ -1,0 +1,25 @@
+function isIPv4Address($inputString) {
+    $splitedStringArr = explode('.', $inputString);
+    
+    $filteredArr = [];
+    foreach($splitedStringArr as $str) {
+        if(strlen($str) == 2 && $str[0] == '0') {
+            return false;
+        }
+        if($str == '' || !is_numeric($str)) {
+            return false;
+        } 
+        array_push($filteredArr, (int) $str);
+    }
+    
+    if(sizeof($filteredArr) == 4) {
+        foreach($filteredArr as $num) {
+            if($num < 0 || $num > 255) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    return false;
+}
