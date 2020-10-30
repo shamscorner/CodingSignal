@@ -1,0 +1,15 @@
+function palindromeRearranging($inputString) {
+    $letterCountArr = array_count_values(str_split($inputString));
+    
+    $oddCount = 0;
+    foreach($letterCountArr as $letterCount) {
+        if($letterCount % 2 != 0) {
+            $oddCount++;
+        }
+        if($oddCount > 1) {
+            return false;
+        }
+    }
+    
+    return true;
+}
