@@ -1,0 +1,19 @@
+function areSimilar($a, $b) {
+    if($a == $b) {
+        return true;
+    }
+    
+    $c = [];
+    $d = [];
+    for($i = 0; $i < sizeof($a); $i++) {
+        if($a[$i] != $b[$i]) {
+            array_push($c, $a[$i]);
+            array_push($d, $b[$i]);
+        }
+    }
+    
+    if(sizeof($c) == 2 && $c == array_reverse($d)) {
+        return true;
+    }
+    return false;
+}
