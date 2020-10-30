@@ -1,0 +1,8 @@
+function arrayMaximalAdjacentDifference($inputArray) {
+    $diffArr = [];
+    for($i = 0; $i < sizeof($inputArray) - 1; $i++) {
+        array_push($diffArr, abs($inputArray[$i] - $inputArray[$i + 1]));
+    }
+    
+    return max($diffArr);
+}
