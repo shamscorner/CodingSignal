@@ -1,0 +1,13 @@
+function arrayChange($inputArray) {
+    $result = 0;
+    
+    for($i = 0; $i < sizeof($inputArray) - 1; $i++) {
+        if($inputArray[$i] >= $inputArray[$i + 1]) {
+            $diff = $inputArray[$i] - $inputArray[$i + 1] + 1;
+            $inputArray[$i + 1] = $inputArray[$i] + 1;
+            $result += $diff;
+        }
+    }
+    
+    return $result;
+}
