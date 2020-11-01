@@ -1,0 +1,17 @@
+function absoluteValuesSumMinimization($a) {
+    $absValues = [];
+    
+    for($i = 0; $i < sizeof($a); $i++) {
+        $sum = 0;
+        for($j = 0; $j < sizeof($a); $j++) {
+            $sum += abs($a[$j] - $a[$i]);
+        }
+        $absValues[$a[$i]] = $sum;
+    }
+    
+    $min = min($absValues);
+    
+    $keys = array_keys($absValues, $min);
+    
+    return min($keys);
+}
