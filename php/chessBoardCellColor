@@ -1,0 +1,17 @@
+function chessBoardCellColor($cell1, $cell2) {
+    $numLetter = [
+        'A' => 1, 
+        'B' => 2, 
+        'C' => 3, 
+        'D' => 4, 
+        'E' => 5, 
+        'F' => 6, 
+        'G' => 7,
+        'H' => 8 
+    ];
+    
+    $sum1 = $numLetter[$cell1[0]] + (int) $cell1[1];
+    $sum2 = $numLetter[$cell2[0]] + (int) $cell2[1];
+    
+    return $sum1 % 2 == $sum2 % 2;
+}
