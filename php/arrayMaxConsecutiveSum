@@ -1,0 +1,29 @@
+// function arrayMaxConsecutiveSum($inputArray, $k) {
+//     $largest = 0;
+    
+//     for($i = 0; $i < sizeof($inputArray) - $k + 1; $i++) {
+//         $sum = 0;
+//         for($j = $i; $j < $i + $k; $j++) {
+//             $sum += $inputArray[$j];
+//         }
+//         $largest = max([$largest, $sum]);
+//     }
+    
+//     return $largest;
+// }
+
+function arrayMaxConsecutiveSum($inputArray, $k) {
+    $sum = array_sum(array_slice($inputArray, 0, $k, true));
+    
+    $maxs = $sum;
+    
+    for($key = 1; $key <= sizeof($inputArray) - $k; $key++) {
+
+        $sum += $inputArray[$key + $k - 1] - $inputArray[$key - 1];
+        
+        if($sum > $maxs) { 
+            $maxs = $sum;
+        }
+    }
+    return $maxs;
+}
