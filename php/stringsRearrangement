@@ -1,0 +1,64 @@
+function permuteArray(array $input) {
+    $input = array_values($input);
+
+    // permutation of 1 value is the same value
+    if (count($input) === 1) {
+        return array($input);
+    }
+
+    // to permute multiple values, pick a value to put in the front and 
+    // permute the rest; repeat this with all values of the original array
+    $result = [];
+    for ($i = 0; $i < count($input); $i++) {
+        $copy  = $input;
+        $value = array_splice($copy, $i, 1);
+        foreach (permuteArray($copy) as $permutation) {
+            array_unshift($permutation, $value[0]);
+            $result[] = $permutation;
+        }
+    }
+
+    return $result;
+}
+
+function isEqualString($str1, $str2) {
+    // print("\n" . $str1 . "-" . $str2);
+    
+    if($str1 == $str2) {
+        return false;
+    }
+    
+    $notEqualCount = 0;
+    for($i = 0; $i < strlen($str1); $i++) {
+        if($str1[$i] != $str2[$i]) {
+            $notEqualCount++;
+            if($notEqualCount > 1) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+function stringsRearrangement($inputArray) {
+    $permuteArr = permuteArray($inputArray);
+    
+    $isEqual = true;
+    for($i = 0; $i < sizeof($permuteArr); $i++) {
+        // print_r($permuteArr[$i]);
+        $isEqual = true;
+        for($j = 0; $j < sizeof($permuteArr[$i]) - 1; $j++) {
+            $isEqualString = isEqualString($permuteArr[$i][$j], $permuteArr[$i][$j + 1]);
+            // print("\n" . (int) $isEqualString . "\n");
+            if(!$isEqualString) {
+                $isEqual = false;
+                break;
+            }
+        }
+        if($isEqual) {
+            return true;
+        }
+    }
+    
+    return $isEqual;
+}
