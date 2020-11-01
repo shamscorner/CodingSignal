@@ -1,0 +1,14 @@
+function evenDigitsOnly($n) {
+    
+    while($n != 0) {
+        $lastDigit = $n % 10;
+        
+        if($lastDigit % 2 != 0) {
+            return false;
+        } 
+        
+        $n = (int) ($n / 10);
+    }
+    
+    return true;
+}
