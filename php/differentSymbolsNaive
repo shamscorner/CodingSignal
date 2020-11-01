@@ -1,0 +1,3 @@
+function differentSymbolsNaive($s) {
+    return sizeof(array_count_values(str_split($s)));
+}
