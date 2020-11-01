@@ -1,0 +1,9 @@
+function extractEachKth($inputArray, $k) {
+    $result = [];
+    for($i = 0; $i < sizeof($inputArray); $i++) {
+        if(($i + 1) % $k != 0) {
+            $result[] = $inputArray[$i];
+        }
+    }
+    return $result;
+}
