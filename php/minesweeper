@@ -1,0 +1,59 @@
+function minesweeper($matrix) {
+    $mineCount = [];
+    
+    for($i = 0; $i < sizeof($matrix); $i++) {
+        $mineCount[] = [];
+        for($j = 0; $j < sizeof($matrix[$i]); $j++) {
+            $mineCount[$i][$j] = 0;
+            
+            // above
+            if($matrix[$i][$j - 1] == true) {
+                $mineCount[$i][$j]++;
+            }
+            // below
+            if(array_key_exists($j + 1, $matrix[$i])) {
+                if($matrix[$i][$j + 1] == true) {
+                    $mineCount[$i][$j]++;
+                }
+            }
+            // left
+            if(array_key_exists($i - 1, $matrix)) {
+                if($matrix[$i - 1][$j] == true) {
+                    $mineCount[$i][$j]++;
+                }
+            }
+            // right
+            if(array_key_exists($i + 1, $matrix)) {
+                if($matrix[$i + 1][$j] == true) {
+                    $mineCount[$i][$j]++;
+                }
+            }
+            // down right
+            if(array_key_exists($i + 1, $matrix) && array_key_exists($j + 1, $matrix[$i])) {
+                if($matrix[$i + 1][$j + 1] == true) {
+                    $mineCount[$i][$j]++;
+                }
+            }
+            // down left
+            if(array_key_exists($i + 1, $matrix) && array_key_exists($j - 1, $matrix[$i])) {
+                if($matrix[$i + 1][$j - 1] == true) {
+                    $mineCount[$i][$j]++;
+                }
+            }
+            // up right
+            if(array_key_exists($i - 1, $matrix) && array_key_exists($j + 1, $matrix[$i])) {
+                if($matrix[$i - 1][$j + 1] == true) {
+                    $mineCount[$i][$j]++;
+                }
+            }
+            // up left
+            if(array_key_exists($i - 1, $matrix) && array_key_exists($j - 1, $matrix[$i])) {
+                if($matrix[$i - 1][$j - 1] == true) {
+                    $mineCount[$i][$j]++;
+                }
+            }
+        }
+    }
+    
+    return $mineCount;
+}
