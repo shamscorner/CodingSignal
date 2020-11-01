@@ -1,0 +1,14 @@
+function alphabeticShift($inputString) {
+    $result = '';
+    for($i = 0; $i < strlen($inputString); $i++) {
+        $s = $inputString[$i];
+        ++$s;
+        if(strlen($s) > 1) {
+            $result .= ($s[0]);
+        } else {
+            $result .= ($s);
+        }
+    }
+    
+    return $result;
+}
