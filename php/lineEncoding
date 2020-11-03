@@ -1,0 +1,28 @@
+function lineEncoding($s) {
+    $result = "";
+    
+    $strLen = strlen($s);
+    
+    $i = 0;
+    while($i < $strLen) {
+        $sub = $s[$i];
+        $j = 0;
+        for($j = $i + 1; $j < $strLen; $j++) {
+            if($s[$j] == $s[$i]) {
+                $sub .= $s[$j];
+            } else {
+                break;
+            }
+        }
+        $subLen = strlen($sub);
+        if($subLen > 1) {
+            $result .= $subLen . $sub[0];
+        } else {
+            $result .= $sub[0];
+        }
+        
+        $i = $j;
+    }
+    
+    return $result;
+}
