@@ -1,0 +1,5 @@
+function findEmailDomain($address) {
+    $addressArr = explode('@', $address);
+    
+    return $addressArr[array_key_last($addressArr)];
+}
