@@ -1,0 +1,9 @@
+function sumUpNumbers($inputString) {
+    preg_match_all("/[0-9]+/", $inputString, $matches);
+    
+    $sum = 0;
+    foreach($matches[0] as $numStr) {
+        $sum += (int) $numStr;
+    } 
+    return $sum;
+}
