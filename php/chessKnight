@@ -1,0 +1,76 @@
+function chessKnight($cell) {
+    $board = [
+        'a' => 1, 
+        'b' => 2, 
+        'c' => 3, 
+        'd' => 4, 
+        'e' => 5, 
+        'f' => 6, 
+        'g' => 7, 
+        'h' => 8
+    ];
+    
+    $cellX = $board[$cell[0]];
+    $cellY = (int) $cell[1];
+    
+    $count = 0;
+    
+    $cellY2 = $cellY + 2;
+    $cellX1 = $cellX + 1;
+    $cellX_1 = $cellX - 1;
+    $cellY1 = $cellY + 1;
+    $cellX2 = $cellX + 2;
+    $cellX_2 = $cellX - 2;
+    $cellY_2 = $cellY - 2;
+    $cellY_1 = $cellY - 1;
+    
+    // top 2 right 1
+    if($cellY2 <= 8 && $cellX1 <= 8) {
+        print("top 2 right 1\n");
+        $count++;
+    }
+    
+    // top 2 left 1
+    if($cellY2 <= 8 && $cellX_1 >= 1) {
+        print("top 2 left 1\n");
+        $count++;
+    }
+    
+    // top 1 right 2
+    if($cellY1 <= 8 && $cellX2 <= 8) {
+        print("top 1 right 2\n");
+        $count++;
+    }
+    
+    // top 1 left 2
+    if($cellY1 <= 8 && $cellX_2 >= 1) {
+        print("top 1 left 2\n");
+        $count++;
+    }
+    
+    // bottom 2 right 1
+    if($cellY_2 >= 1 && $cellX1 <= 8) {
+        print("bottom 2 right 1\n");
+        $count++;
+    }
+    
+    // bottom 2 left 1
+    if($cellY_2 >= 1 && $cellX_1 >= 1) {
+        print("bottom 2 left 1\n");
+        $count++;
+    }
+    
+    // bottom 1 right 2
+    if($cellY_1 >= 1 && $cellX2 <= 8) {
+        print("bottom 1 right 2\n");
+        $count++;
+    }
+    
+    // bottom 1 left 2
+    if($cellY_1 >= 1 && $cellX_2 >= 1) {
+        print("bottom 1 left 2\n");
+        $count++;
+    }
+    
+    return $count;
+}
