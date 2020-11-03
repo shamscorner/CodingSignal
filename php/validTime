@@ -1,0 +1,14 @@
+function validTime($time) {
+    $timeArr = explode(':', $time);
+    
+    $hour = (int) $timeArr[0];
+    $minute = (int) $timeArr[1];
+    
+    if($hour >= 0 && $hour < 24) {
+        if($minute >= 0 && $minute < 60) {
+            return true;
+        }
+    }
+    
+    return false;
+}
