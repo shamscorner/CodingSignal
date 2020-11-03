@@ -1,0 +1,14 @@
+function digitsProduct($product) {
+    for($num = 1; $num <= 9999; $num++) {
+        $result = 1;
+        foreach(str_split((string) $num) as $val) {
+            $result *= (int) $val;
+        }
+        
+        if($result == $product) {
+            return $num;
+        }
+    }
+    
+    return -1;
+}
