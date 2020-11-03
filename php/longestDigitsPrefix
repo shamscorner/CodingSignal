@@ -1,0 +1,16 @@
+function longestDigitsPrefix($inputString) {
+    if($inputString == '') {
+        return '';
+    }
+    
+    $result = "";
+    for($i = 0; $i < strlen($inputString); $i++) {
+        if(is_numeric($inputString[$i])) {
+            $result .= $inputString[$i];
+        } else {
+            return $result;
+        }
+    }
+    
+    return $result;
+}
