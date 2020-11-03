@@ -1,0 +1,15 @@
+function deleteDigit($n) {
+    $strArr = str_split((string) $n);
+    $copyArr = $strArr;
+    
+    $nums = [];
+    for($i = 0; $i < sizeof($strArr); $i++) {
+        unset($copyArr[$i]);
+        
+        $nums[] = (int) implode('', array_values($copyArr));
+        
+        $copyArr = $strArr;
+    }
+    
+    return max($nums);
+}
