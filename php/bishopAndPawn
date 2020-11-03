@@ -1,0 +1,23 @@
+function bishopAndPawn($bishop, $pawn) {
+    $board = [
+        'a' => 1, 
+        'b' => 2, 
+        'c' => 3, 
+        'd' => 4, 
+        'e' => 5, 
+        'f' => 6, 
+        'g' => 7, 
+        'h' => 8
+    ];
+    
+    $bishopX = $board[$bishop[0]];
+    $bishopY = (int) $bishop[1];
+    
+    $pawnX = $board[$pawn[0]];
+    $pawnY = (int) $pawn[1];
+    
+    if($bishopX + $bishopY == $pawnX + $pawnY || $bishopX + $pawnY == $bishopY + $pawnX) {
+        return true;
+    }
+    return false;
+}
