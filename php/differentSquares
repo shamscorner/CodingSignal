@@ -1,0 +1,9 @@
+function differentSquares($matrix) {
+    $arr = [];
+    for($i = 0; $i < sizeof($matrix) - 1; $i++) {
+        for($j = 0; $j < sizeof($matrix[$i]) - 1; $j++) {
+            $arr[] = "" . $matrix[$i][$j] . $matrix[$i][$j + 1] . $matrix[$i + 1][$j] . $matrix[$i + 1][$j + 1];    
+        }
+    }
+    return sizeof(array_unique($arr));
+}
