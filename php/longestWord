@@ -1,0 +1,13 @@
+function longestWord($text) {
+    preg_match_all("/[a-z]+/i", $text, $matches);
+    
+    $longest = '';
+    
+    foreach($matches[0] as $word) {
+        if(strlen($word) > strlen($longest)) {
+            $longest = $word;
+        }
+    }
+    
+    return $longest;
+}
