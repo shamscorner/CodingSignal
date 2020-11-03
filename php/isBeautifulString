@@ -1,0 +1,14 @@
+function isBeautifulString($inputString) {
+    $l = 'abcdefghijklmnopqrstuvwxyz';
+    
+    $lr = str_split($l);
+    
+    for($i = 1; $i < sizeof($lr); $i++) {
+        $prevCount = sizeof(explode($lr[$i], $inputString));
+        $nextCount = sizeof(explode($lr[$i - 1], $inputString));
+        if($prevCount > $nextCount) {
+            return false;
+        }
+    }
+    return true;
+}
