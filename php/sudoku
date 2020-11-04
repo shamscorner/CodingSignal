@@ -1,0 +1,52 @@
+function sudoku($grid) {
+    // check by row
+    if(!checkUnique($grid)) {
+        return false;
+    }
+    
+    // check by column
+    // transpose the matrix first
+    $gridT = transpose($grid);
+    if(!checkUnique($gridT)) {
+        return false;
+    }
+    
+    // check the 3 by 3 grid
+    $sg = [];
+    for($i = 0; $i < 9; $i += 3) {
+        for($j = 0; $j < 9; $j += 3) {
+            $sg[] = [
+                $grid[$i][$j], $grid[$i][$j + 1], $grid[$i][$j + 2], 
+                $grid[$i + 1][$j], $grid[$i + 1][$j + 1], $grid[$i + 1][$j + 2], 
+                $grid[$i + 2][$j], $grid[$i + 2][$j + 1], $grid[$i + 2][$j + 2], 
+            ];
+        }
+    }
+    
+    return checkUnique($sg);
+}
+
+function checkUnique($grid) {
+    $unique_sg = [];
+    foreach($grid as $arr) {
+        $unique_sg[] = array_values(array_unique($arr));
+    }
+    foreach($unique_sg as $item) {
+        if(sizeof($item) != 9) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function transpose($arr) {
+    $result = [];
+    for($i = 0; $i < 9; $i++) {
+        $row = [];
+        for($j = 0; $j < 9; $j++) {
+            $row[] = $arr[$j][$i];
+        }
+        $result[] = $row;
+    }
+    return $result;
+}
